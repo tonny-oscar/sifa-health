@@ -16,7 +16,7 @@ const Home = () => {
           <Image src={moonphase} alt='moonphases' className='max-w-screen w-[250px]' />
         </article>
       </div>
-      <div className='h-[400px] border-t-[2px] border-linen bg-white p-5 text-center flex flex-col items-center justify-around'>
+      <div className='min-h-[400px] h-auto border-t-[2px] border-linen bg-white p-5 text-center flex flex-col items-center justify-around'>
         <h1 className='text-xl'>How do coaching and astrology blend?</h1>
         <Image src={moonsun} alt='moon and sun decorative image' className='max-w-screen w-[150px]' />
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
