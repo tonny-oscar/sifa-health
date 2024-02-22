@@ -1,10 +1,13 @@
+import Layout from '@/components/Layout';
 import React from 'react';
 
 const Services = () => {
   return (
-    <main className='p-2 fade-in'>
-      <p>Services page</p>
-    </main>
+    <Layout>
+      <div className='p-2'>
+        <p>Services page</p>
+      </div>
+    </Layout>
   );
 };
 

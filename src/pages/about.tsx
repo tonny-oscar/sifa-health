@@ -1,10 +1,13 @@
+import Layout from '@/components/Layout';
 import React from 'react';
 
 const About = () => {
   return (
-    <main className='p-2 fade-in'>
-      <p>About page</p>
-    </main>
+    <Layout>
+      <div className='p-2'>
+        <p>About page</p>
+      </div>
+    </Layout>
   );
 };
 

@@ -1,14 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import portrait from '../../public/images/ks-portrait.jpeg';
-
+import Layout from '@/components/Layout';
 import moonphase from '../../public/images/moonphase.png';
 import moonsun from '../../public/images/moon-sun.png';
-import Footer from '@/components/Footer';
 
 const Home = () => {
   return (
-    <main className='fade-in'>
+    <Layout>
       <div id='homeSection' className='p-5 w-screen h-[500px] grid grid-cols-2'>
         <article className='h-5/6 text-center flex flex-col m-auto items-center justify-around col-span-2 md:col-span-1 md:max-w-[400px]'>
           <h1 className='text-xl font-extrabold'>DEEPEN. EVOLVE. GROW.</h1>
@@ -24,8 +22,7 @@ const Home = () => {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-      <Footer />
-    </main>
+    </Layout>
   );
 };
 
