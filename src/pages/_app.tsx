@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div>
+    <div className='fade-in'>
       <Header />
       <Component {...pageProps} />
     </div>

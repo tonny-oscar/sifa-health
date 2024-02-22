@@ -2,7 +2,7 @@ import React from 'react';
 
 const Services = () => {
   return (
-    <main className='p-2'>
+    <main className='p-2 fade-in'>
       <p>Services page</p>
     </main>
   );
