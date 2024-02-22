@@ -64,6 +64,11 @@ button {
 
 #contactSection {
   position: relative;
+  min-height: calc(100vh - 72px)
+}
+
+#contactImg {
+  max-height: calc(100vh - 72px)
 }
 
 #contactSection::before {
