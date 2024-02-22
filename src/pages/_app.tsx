@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   return (
-    <div>
+    <div className='max-w-screen overflow-x-hidden'>
       {loading ? (
         <div className='flex items-center justify-center load-in bg-gray-200 bg-opacity-50 w-screen h-screen'>
           <Image className='pulse w-full max-w-[400px]' src={moonphase} alt='Kate Sanger Logo shown while page is loading' />
