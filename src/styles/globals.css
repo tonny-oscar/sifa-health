@@ -2,26 +2,116 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+*,
+button {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+
+.nav-link.inactive {
+  border-bottom: 1px solid transparent;
+}
+
+.nav-link {
+  border: 1px solid transparent;
+  transition: border-color 0.5s, color 0.5s;
+}
+
+.nav-link.active {
+  border-bottom: 1px solid black;
+}
+
+.nav-link.inactive:hover {
+  color: gray;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.load-in {
+  animation: loadIn 2s ease-in forwards;
+}
+
+.delay-display {
+  animation: delayDisplay 2.5s ease-in forwards;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+#homeSection {
+  position: relative;
+}
+
+#homeSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../public/images/ks-portrait.jpeg');
+  background-size: cover;
+  opacity: 0.5;
+  filter: blur(3px) grayscale(50%);
+  z-index: -1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes loadIn {
+  0% {
+    display: flex;
+  }
+  
+  100% {
+    display: none;
+  }
 }
+
+@keyframes delayDisplay {
+  0% {
+    display: none;
+  }
+
+  80% {
+    opacity: 0%;
+    display: block;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes pulse {
+  0%, 80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  40%, 100% {
+    opacity: 0.3;
+    transform: scale(.9);
+
+  }
+}
+
+
+/* @media (min-width: 1280px) {
+  #homeSection::before {
+    background-image: url('../../public/images/light.jpg');
+  }
+} */
