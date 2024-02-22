@@ -1,12 +1,14 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import Header from '@/components/Header';
+import favicon from '../../public/favicon.ico';
+import Image from 'next/image';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div>
-      <div className='load-in bg-gray w-screen h-screen'>
-        <p>loading...</p>
+      <div className='flex items-center justify-center load-in bg-gray-200 bg-opacity-50 w-screen h-screen'>
+        <Image className='pulse' src={favicon} alt='Kate Sanger Logo shown while page is loading' />
       </div>
       <div className='delay-display'>
         <Header />

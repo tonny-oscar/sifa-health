@@ -6,12 +6,12 @@ import NavLink from './NavLink';
 
 const Header = () => {
   return (
-    <header className='bg-linen bg-opacity-60 py-1 flex justify-between items-center border-b-[2px] border-dogwood'>
-      <Link href='/'>
-        <Image src={ksLogo} alt='Katie Sanger Logo' />
+    <header className='z-50 sticky px-[2vw] py-2 bg-linen bg-opacity-20 py-1 flex justify-between items-center border-b-[2px] border-linen border-opacity-80'>
+      <Link href='/' className='text-3xl font-extrabold'>
+        <Image className='w-[70vw max-w-[200px]' src={ksLogo} alt='Katie Sanger Logo' />
       </Link>
-      <button className='md:hidden mr-[2vw]'>
-        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' className='w-8 h-8'>
+      <button className='md:hidden'>
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth='1.5' stroke='currentColor' className='w-8 h-8'>
           <path strokeLinecap='round' strokeLinejoin='round' d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5' />
         </svg>
       </button>

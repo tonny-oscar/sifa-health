@@ -16,6 +16,12 @@ const config: Config = {
       colors: {
         'linen': '#F5EBE0', 
         'dogwood': '#D5BDAF'
+      },
+      blur: {
+        'xs': '2px'
+      },
+      grayscale: {
+        50: '50%',
       }
     },
   },
