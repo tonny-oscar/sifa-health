@@ -24,7 +24,7 @@ const config: Config = {
         50: '50%',
       },
       height: {
-        'nav-vh': 'calc(100vh - 150px)'
+        'nav-vh': 'calc(100vh - 72px)'
       }, 
     },
   },

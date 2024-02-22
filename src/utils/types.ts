@@ -1,3 +1,7 @@
+type Indexable = {
+  [key:string] : any
+}
+
 export type Blog = {
   title: string,
   tag: string,
@@ -11,3 +15,10 @@ export type Service = {
   description: string,
   image:{src: string, alt: string}
 }
+
+export type Submission = Indexable & {
+    name: string,
+    email: string,
+    subject: string,
+    message: string,
+  }
