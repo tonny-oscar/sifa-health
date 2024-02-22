@@ -22,7 +22,10 @@ const config: Config = {
       },
       grayscale: {
         50: '50%',
-      }
+      },
+      height: {
+        'nav-vh': 'calc(100vh - 150px)'
+      }, 
     },
   },
   plugins: [],

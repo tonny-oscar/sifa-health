@@ -6,9 +6,10 @@ import NavLink from './NavLink';
 
 const Header = () => {
   return (
-    <header className='z-50 sticky px-[2vw] py-2 bg-linen bg-opacity-20 py-1 flex justify-between items-center border-b-[2px] border-linen border-opacity-80'>
-      <Link href='/' className='text-3xl font-extrabold'>
-        <Image className='w-[70vw max-w-[200px]' src={ksLogo} alt='Katie Sanger Logo' />
+    <header className='z-50 sticky px-[2vw] py-2 bg-gray-200 bg-opacity-20 py-1 flex justify-between items-center border-b-[2px] border-linen'>
+      <Link href='/' className='text-2xl font-extrabold'>
+        {/* KATIE SANGER */}
+        <Image className='w-[70vw] max-w-[150px]' src={ksLogo} alt='Katie Sanger Logo' />
       </Link>
       <button className='md:hidden'>
         <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth='1.5' stroke='currentColor' className='w-8 h-8'>
