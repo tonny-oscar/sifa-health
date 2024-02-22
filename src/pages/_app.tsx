@@ -4,9 +4,14 @@ import Header from '@/components/Header';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className='fade-in'>
-      <Header />
-      <Component {...pageProps} />
+    <div>
+      <div className='load-in bg-gray w-screen h-screen'>
+        <p>loading...</p>
+      </div>
+      <div className='delay-display'>
+        <Header />
+        <Component {...pageProps} />
+      </div>
     </div>
   );
 }
