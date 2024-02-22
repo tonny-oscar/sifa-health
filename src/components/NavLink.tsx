@@ -5,7 +5,7 @@ import Link from 'next/link';
 const NavLink = ({ href, name }: { href: string; name: string }) => {
   const { pathname } = useRouter();
   return (
-    <Link href={href} className={pathname === href ? 'active' : 'nav-link border-transition'}>
+    <Link href={href} className={`px-2 text-center nav-link ${pathname === href ? 'active' : 'inactive'}`}>
       {name}
     </Link>
   );

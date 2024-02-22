@@ -10,11 +10,20 @@ button {
   font-weight: 300;
 }
 
-.border-transition {
-  border: 1px solid transparent;
-  transition: border-color 0.5s;
+
+.nav-link.inactive {
+  border-bottom: 1px solid transparent;
 }
 
-.active, .nav-link:hover {
+.nav-link {
+  border: 1px solid transparent;
+  transition: border-color 0.5s, color 0.5s;
+}
+
+.nav-link.active {
   border-bottom: 1px solid black;
+}
+
+.nav-link.inactive:hover {
+  color: gray;
 }
