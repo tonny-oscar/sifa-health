@@ -5,7 +5,7 @@ const Services = () => {
   return (
     <Layout>
       <div className='p-2'>
-        <p>Services page</p>
+        <p>Services page coming soon!</p>
       </div>
     </Layout>
   );

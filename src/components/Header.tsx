@@ -6,7 +6,7 @@ import NavLink from './NavLink';
 
 const Header = ({ toggleMenu }: { toggleMenu: () => void }) => {
   return (
-    <header className='z-50 sticky top-0 px-[2vw] py-2 bg-gray-100 bg-opacity-[89%] py-1 flex justify-between items-center border-b-[2px] border-linen'>
+    <header className='z-50 sticky top-0 px-[2vw] py-2 bg-gray-100 bg-opacity-[95%] py-1 flex justify-between items-center border-b-[2px] border-linen'>
       <Link href='/'>
         <Image className='w-[70vw] max-w-[150px]' src={ksLogo} alt='Katie Sanger Logo' />
       </Link>
@@ -17,8 +17,8 @@ const Header = ({ toggleMenu }: { toggleMenu: () => void }) => {
       </button>
       <nav className='hidden md:flex justify-around items-end md:w-[400px]'>
         <NavLink href='/about' name='ABOUT' />
-        <NavLink href='/services' name='SERVICES' />
         <NavLink href='/contact' name='CONTACT' />
+        <button className='bg-gray-400 pt-1 px-5 text-white'>BOOK A CALL</button>
       </nav>
     </header>
   );

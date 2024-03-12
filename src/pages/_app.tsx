@@ -50,10 +50,6 @@ export default function App({ Component, pageProps }: AppProps) {
                 <Link className='border-b-[1px] border-black w-screen max-w-[200px] text-center text-xl' onClick={toggleMenu} href='/about'>
                   ABOUT
                 </Link>
-                <Link className='border-b-[1px] border-black w-screen max-w-[200px] text-center text-xl' onClick={toggleMenu} href='/services'>
-                  {' '}
-                  SERVICES
-                </Link>
                 <Link className='border-b-[1px] border-black w-screen max-w-[200px] text-center text-xl' onClick={toggleMenu} href='/contact'>
                   CONTACT
                 </Link>
