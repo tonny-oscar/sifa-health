@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { Submission } from '../utils/types';
+import { sendEmail } from '@/utils/apiCall';
 
 const ContactForm = () => {
   const freshForm: Submission = {
@@ -17,8 +18,15 @@ const ContactForm = () => {
 
   const submitForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({ formData });
-    setFormData(freshForm);
+    setSending(true);
+    try {
+      await sendEmail({ ...formData, subject: `New Client Inquiry${formData.subject.length ? ': ' + formData.subject : ''}` });
+      setSuccess(true);
+      setFormData(freshForm);
+    } catch (error) {
+      setError(true);
+    }
+    setSending(false);
   };
 
   const resetFeedback = () => {
