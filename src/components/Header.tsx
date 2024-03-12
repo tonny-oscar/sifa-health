@@ -17,8 +17,8 @@ const Header = ({ toggleMenu }: { toggleMenu: () => void }) => {
       </button>
       <nav className='hidden md:flex justify-around items-end md:w-[400px]'>
         <NavLink href='/about' name='ABOUT' />
-        <NavLink href='/services' name='SERVICES' />
         <NavLink href='/contact' name='CONTACT' />
+        <button className='bg-gray-400 pt-1 px-5 text-white'>BOOK A CALL</button>
       </nav>
     </header>
   );
