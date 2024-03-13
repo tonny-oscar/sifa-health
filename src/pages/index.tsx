@@ -76,7 +76,7 @@ const Home = () => {
           </div>
         </article>
 
-        <Link className='border-b-[1px] border-black py-2 px-5' href='#'>
+        <Link href='https://calendly.com/katiesanger/30min' target='_blank' className='border-b-[1px] border-black py-2 px-5'>
           BOOK A FREE CLARITY CALL
         </Link>
       </section>
