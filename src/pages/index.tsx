@@ -25,16 +25,16 @@ const Home = () => {
         <p>If you're looking for long lasting, transformation - you're in the right place. Journey with me as we cultivate and create your dream life: from the inside out. Let's align you with your highest calling and most authentic expression utilizing a blend of astrology, personal empowerment, and life coaching.</p>
       </article>
       <article id='calloutArticle' className='my-10 p-4 flex flex-col md:grid grid-cols-5 items-center'>
-        <p className='col-span-2 my-4 italic font-bold text-2xl border-l-2 p-4'>&quot;Discover the immense power of astrology, utilizing your birth chart as the framework to align with your most authentic self.&quot;</p>
+        <p className='col-span-2 my-4 italic font-bold text-2xl text-center border-b-2 md:text-start md:border-b-0 md:border-l-2 p-4'>&quot;Discover the immense power of astrology, utilizing your birth chart as the framework to align with your most authentic self.&quot;</p>
         <div className='flex justify-center col-span-3'>
-          <button className='group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-center'>
+          <button onClick={() => setCoachingShown(false)} className='group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-center'>
             Discover Astrology
             <div className='relative w-[80%] h-[80%] rounded-[120px] overflow-hidden'>
               <Image className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform scale-100 group-hover:scale-110' src={stars} alt='stars in the night sky' />
             </div>
             Discover Astrology
           </button>
-          <button className='group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-center'>
+          <button onClick={() => setCoachingShown(true)} className='group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-center'>
             Discover Coaching
             <div className='relative w-[80%] h-[80%] rounded-[120px] overflow-hidden'>
               <Image className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform scale-100 group-hover:scale-110' src={moon} alt='moon visible during the afternoon, peaking through a pink sunset' />
@@ -53,11 +53,18 @@ const Home = () => {
         </div>
       </article>
       <section id='homeServicesSection' className='min-h-[400px] flex flex-col items-center justify-around p-5'>
-        <h1 className='text-3xl text-center m-2 josefin'>WHAT I OFFER</h1>
+        <h1 className='text-3xl text-center m-2 '>WHAT I OFFER</h1>
+        <div>
+          <button onClick={() => setCoachingShown(true)} className={`transform-border duration-300 m-2 p-2 text-xl text-center ${coachingShown ? 'border-b-2 border-gray-500' : ''}`}>
+            Coaching Services
+          </button>
+          <button onClick={() => setCoachingShown(false)} className={`transform-border duration-300 m-2 p-2 text-xl text-center ${!coachingShown ? 'border-b-2 border-gray-500' : ''}`}>
+            Astrology Services
+          </button>
+        </div>
         <article className='w-[90vw] md:max-w-[900px] min-h-[250px] m-5 bg-white bg-opacity-50 rounded-sm flex flex-col items-center justify-center text-center'>
           {coachingShown ? (
             <>
-              <h2 className='text-xl border-b-2 text-center'>Coaching Services</h2>
               <div className='max-w-[400px] md:max-w-[70%] mx-5'></div>
               <ul className='my-4 mx-8 text-start'>
                 <li className='p-1'>
@@ -70,10 +77,12 @@ const Home = () => {
                   <span className='font-bold text-lg'>6 Month Program:</span> DESCRIPTION NEEDED HERE
                 </li>
               </ul>
+              <Link className='border-b-[1px] border-black py-2 px-5' href='#'>
+                BOOK A CLARITY CALL
+              </Link>
             </>
           ) : (
             <>
-              <h2 className='text-xl border-b-2 text-center'>Astrology Offerings</h2>
               <div className='max-w-[400px] md:max-w-[70%] mx-5'></div>
               <ul className='my-4 mx-8 text-start'>
                 <li className='p-1'>
@@ -86,17 +95,12 @@ const Home = () => {
                   <span className='font-bold text-lg'>Power Moon Reading:</span> Comparing your birth chart to the themes of the current new or full moon.
                 </li>
               </ul>
+              <Link className='border-b-[1px] border-black py-2 px-5' href='#'>
+                BOOK A SESSION
+              </Link>
             </>
           )}
-          <div>
-            <button className={`m-1 rounded-full h-4 w-4 ${coachingShown ? 'bg-gray-400' : 'bg-none'} border-2`} onClick={() => setCoachingShown(true)}></button>
-            <button className={`m-1 rounded-full h-4 w-4 ${!coachingShown ? 'bg-gray-400' : 'bg-none'} border-2`} onClick={() => setCoachingShown(false)}></button>
-          </div>
         </article>
-
-        <Link className='border-b-[1px] border-black py-2 px-5' href='#'>
-          BOOK A FREE CLARITY CALL
-        </Link>
       </section>
     </Layout>
   );
