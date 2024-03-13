@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className='border-t-[1px] pt-2 border-t-linen flex flex-col items-center'>
+    <footer className='bg-white border-t-[1px] pt-2 border-t-linen flex flex-col items-center'>
       <div className='flex flex-col justify-center items-center'>
         <Image className='border-black max-w-[25px] transform rotate-45' src={minimoon} alt='Moonphases decorative image' />
         <Image className='max-w-[150px]' src={ksLogo} alt='Katie Sanger Logo' />
