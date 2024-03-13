@@ -18,7 +18,7 @@ const Header = ({ toggleMenu }: { toggleMenu: () => void }) => {
       <nav className='hidden md:flex justify-around items-end md:w-[400px]'>
         <NavLink href='/about' name='ABOUT' />
         <NavLink href='/contact' name='CONTACT' />
-        <button className='bg-gray-400 mb-[1px] px-5 text-white'>BOOK A CALL</button>
+        <Link href='https://calendly.com/katiesanger/30min' target='_blank' className='bg-gray-400 pt-1 px-5 text-white'>BOOK A CALL</Link>
       </nav>
     </header>
   );

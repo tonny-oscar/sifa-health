@@ -14,7 +14,7 @@ const Contact = () => {
           <h1 className='text-3xl text-center'>GET IN TOUCH</h1>
           <p className='text-center py-4'>Let&apos;s connect! I&apos;m looking forward to meeting you.</p>
           <ContactForm />
-          <Link href='/contact' className='text-center block mt-1'>
+          <Link href='https://calendly.com/katiesanger/30min' target='_blank' className='text-center block mt-1'>
             <span className='pr-2 italic'>Interested in coaching services?</span>
             <span className='underline inline-block'>Book a free clarity call</span>
           </Link>

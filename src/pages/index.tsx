@@ -77,8 +77,8 @@ const Home = () => {
                   <span className='font-bold text-lg'>6 Month Program:</span> DESCRIPTION NEEDED HERE
                 </li>
               </ul>
-              <Link className='border-b-[1px] border-black py-2 px-5' href='#'>
-                BOOK A CLARITY CALL
+              <Link href='https://calendly.com/katiesanger/30min' target='_blank' className='border-b-[1px] border-black py-2 px-5'>
+                BOOK A FREE CLARITY CALL
               </Link>
             </>
           ) : (
@@ -95,7 +95,7 @@ const Home = () => {
                   <span className='font-bold text-lg'>Power Moon Reading:</span> Comparing your birth chart to the themes of the current new or full moon.
                 </li>
               </ul>
-              <Link className='border-b-[1px] border-black py-2 px-5' href='#'>
+              <Link href='https://calendly.com/katiesanger/30min' target='_blank' className='border-b-[1px] border-black py-2 px-5'>
                 BOOK A SESSION
               </Link>
             </>

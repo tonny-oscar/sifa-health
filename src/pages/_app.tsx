@@ -53,9 +53,9 @@ export default function App({ Component, pageProps }: AppProps) {
                 <Link className='border-b-[1px] border-black w-screen max-w-[200px] text-center text-xl' onClick={toggleMenu} href='/contact'>
                   CONTACT
                 </Link>
-                <button onClick={toggleMenu} className='border-[1px] border-black text-center py-2 w-screen max-w-[200px] text-xl'>
+                <Link href='https://calendly.com/katiesanger/30min' target='_blank' className='border-[1px] border-black text-center py-2 w-screen max-w-[200px] text-xl'>
                   BOOK A CALL
-                </button>
+                </Link>
               </div>
             </nav>
           ) : (
