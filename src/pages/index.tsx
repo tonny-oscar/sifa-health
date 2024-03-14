@@ -6,9 +6,10 @@ import moonsun from '../../public/images/moon-sun.png';
 import Link from 'next/link';
 import moon from '../../public/images/moon.png';
 import stars from '../../public/images/stars.png';
+import { useRouter } from 'next/router';
 
-const Home = () => {
-  const [coachingShown, setCoachingShown] = useState(true);
+const Home = ({setCategory }: { setCategory: React.Dispatch<React.SetStateAction<string>> }) => {
+  const router = useRouter();
   return (
     <Layout>
       <div id='homeSection' className='p-5 w-screen h-[500px] grid grid-cols-2'>
@@ -16,6 +17,9 @@ const Home = () => {
           <h1 className='text-xl font-extrabold'>DEEPEN. EVOLVE. GROW.</h1>
           <p className='max-w-[300px]'>self discovery + mind-body healing for the heart centered woman</p>
           <div className='h-[30px] border-l-[1px] border-black'></div>
+          <Link href='https://calendly.com/katiesanger/30min' target='_blank' className='self-center border-black josefin border-[1px] py-1 pt-2 px-4'>
+            BOOK A CALL
+          </Link>
           <Image src={moonphase} alt='moonphases' className='max-w-screen w-[250px]' />
         </article>
       </div>
@@ -25,23 +29,23 @@ const Home = () => {
         <p>If you&apos;re looking for long lasting, transformation - you&apos;re in the right place. Journey with me as we cultivate and create your dream life: from the inside out. Let&apos;s align you with your highest calling and most authentic expression utilizing a blend of astrology, personal empowerment, and life coaching.</p>
       </article>
       <article id='calloutArticle' className='my-10 p-4 flex flex-col lg:grid grid-cols-5 items-center'>
-        <p className='col-span-5 my-4 italic font-bold text-2xl text-center border-b-2 md:text-start md:border-b-0 md:border-l-2 p-4'>&quot;Discover the immense power of astrology, utilizing your birth chart as the framework to align with your most authentic self.&quot;</p>
-        {/* <div className='flex flex-col md:flex-row justify-center col-span-3'>
-          <button onClick={() => setCoachingShown(false)} className='group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-around'>
+        <p className='col-span-2 my-4 italic font-bold text-2xl text-center border-b-2 md:text-start md:border-b-0 md:border-l-2 p-4'>&quot;Discover the immense power of astrology, utilizing your birth chart as the framework to align with your most authentic self.&quot;</p>
+        <div className='flex flex-col md:flex-row justify-center col-span-3'>
+          <button onClick={() => {setCategory('astrology'); router.push('/services')}} className='group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-around'>
             Discover Astrology
             <div className='relative w-[80%] h-[58%] rounded-[120px] overflow-hidden'>
               <Image className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform scale-100 group-hover:scale-110 opacity-80' src={stars} alt='stars in the night sky' />
             </div>
             Discover Astrology
           </button>
-          <button onClick={() => setCoachingShown(true)} className='discovery-btn group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-around'>
+          <button onClick={() => {setCategory('coaching'); router.push('/services')}} className='discovery-btn group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-around'>
             Discover Coaching
             <div className='relative w-[80%] h-[58%] rounded-[120px] overflow-hidden'>
               <Image className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform scale-100 group-hover:scale-110 opacity-80' src={moon} alt='moon visible during the afternoon, peaking through a pink sunset' />
             </div>
             Discover Coaching
           </button>
-        </div> */}
+        </div>
       </article>
       <article id='homeAboutSection' className='min-h-[420px] flex flex-col justify-center lg:grid grid-cols-2'>
         <div className='bg-white bg-opacity-60 mt-4 lg:mt-0 lg:bg-transparent rounded-sm p-4 h-auto flex flex-col justify-around'>
