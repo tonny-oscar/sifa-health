@@ -77,7 +77,7 @@
   z-index: -1;
 }
 
-#homeAboutSection, #calloutArticle {
+#homeAboutSection, #calloutArticle, #familiarities {
   position: relative;
 }
 
@@ -118,7 +118,7 @@
   max-height: calc(100vh - 72px)
 }
 
-#contactSection::before {
+#contactSection::before,  #familiarities::before {
   content: '';
   position: absolute;
   top: 0;

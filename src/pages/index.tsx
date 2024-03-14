@@ -55,13 +55,6 @@ const Home = () => {
           </Link>
         </div>
       </article>
-      {/* 
-      <article className='text-center'>
-        <p>Have you ever set out to make a change in your life, only to inevitably fall back into an old pattern or blockage?</p>
-        <p>Are you struggling to make changes, deep down knowing you want and need more for your life, but having no idea how to get there or how to begin?</p>
-        <p>Do you believe that if only you just push a little harder, or criticize just a little more, you can force yourself into change... only once again to be met with the same old version of yourself?</p>
-        <p>Here's where my unique blend of tools and methodology works and becomes incredibly impactful.</p>
-      </article> */}
     </Layout>
   );
 };
