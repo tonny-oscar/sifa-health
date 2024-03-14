@@ -22,7 +22,7 @@ const Home = () => {
       <article className='min-h-[200px] h-auto border-t-[2px] text-center border-linen bg-white p-5 flex flex-col items-center justify-around'>
         <h1 className='text-xl'>How you do one thing, is how you do everything.</h1>
         <Image src={moonsun} alt='moon and sun decorative image' className='max-w-screen w-[150px]' />
-        <p>If you're looking for long lasting, transformation - you're in the right place. Journey with me as we cultivate and create your dream life: from the inside out. Let's align you with your highest calling and most authentic expression utilizing a blend of astrology, personal empowerment, and life coaching.</p>
+        <p>If you&apos;re looking for long lasting, transformation - you&apos;re in the right place. Journey with me as we cultivate and create your dream life: from the inside out. Let&apos;s align you with your highest calling and most authentic expression utilizing a blend of astrology, personal empowerment, and life coaching.</p>
       </article>
       <article id='calloutArticle' className='my-10 p-4 flex flex-col lg:grid grid-cols-5 items-center'>
         <p className='col-span-5 my-4 italic font-bold text-2xl text-center border-b-2 md:text-start md:border-b-0 md:border-l-2 p-4'>&quot;Discover the immense power of astrology, utilizing your birth chart as the framework to align with your most authentic self.&quot;</p>

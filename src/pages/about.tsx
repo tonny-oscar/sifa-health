@@ -13,7 +13,7 @@ const About = () => {
         <Image className='h-[300px] md:h-[550px] w-[90vw] md:w-[50vw] object-cover opacity-80' src={inverted} alt='katie sanger doing a yoga pose' />
         <article className='p-4 px-[5%] flex flex-col text-center md:text-start'>
           <h2 className='signature text-4xl'>welcome,</h2>
-          <p className='text-4xl py-2'>I'm Katie Sanger!</p>
+          <p className='text-4xl py-2'>I&apos;m Katie Sanger!</p>
           <p className='max-w-full md:max-w-[500px]'>As a therapeutic life coach, I am dedicated to being of service and driven by a passion for empowering my clients.</p>
           <p className='max-w-full md:max-w-[500px] py-2'>My journey has been one of intuitive exploration from a young age, shaping my path towards becoming who I am today. </p>
           <Link href='https://calendly.com/katiesanger/30min' target='_blank' className='self-center border-black josefin border-b-[1px] py-2 px-5 mt-4'>
