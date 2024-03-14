@@ -11,9 +11,9 @@ export type Blog = {
 }
 
 export type Service = {
-  title: string, 
+  name: string, 
   description: string,
-  image:{src: string, alt: string}
+  price: string,
 }
 
 export type Submission = Indexable & {

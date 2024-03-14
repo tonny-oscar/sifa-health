@@ -6,9 +6,10 @@ import moonsun from '../../public/images/moon-sun.png';
 import Link from 'next/link';
 import moon from '../../public/images/moon.png';
 import stars from '../../public/images/stars.png';
+import { useRouter } from 'next/router';
 
-const Home = () => {
-  const [coachingShown, setCoachingShown] = useState(true);
+const Home = ({setCategory }: { setCategory: React.Dispatch<React.SetStateAction<string>> }) => {
+  const router = useRouter();
   return (
     <Layout>
       <div id='homeSection' className='p-5 w-screen h-[500px] grid grid-cols-2'>
@@ -16,6 +17,9 @@ const Home = () => {
           <h1 className='text-xl font-extrabold'>DEEPEN. EVOLVE. GROW.</h1>
           <p className='max-w-[300px]'>self discovery + mind-body healing for the heart centered woman</p>
           <div className='h-[30px] border-l-[1px] border-black'></div>
+          <Link href='https://calendly.com/katiesanger/30min' target='_blank' className='self-center border-black josefin border-[1px] py-1 pt-2 px-4'>
+            BOOK A CALL
+          </Link>
           <Image src={moonphase} alt='moonphases' className='max-w-screen w-[250px]' />
         </article>
       </div>
@@ -25,23 +29,23 @@ const Home = () => {
         <p>If you&apos;re looking for long lasting, transformation - you&apos;re in the right place. Journey with me as we cultivate and create your dream life: from the inside out. Let&apos;s align you with your highest calling and most authentic expression utilizing a blend of astrology, personal empowerment, and life coaching.</p>
       </article>
       <article id='calloutArticle' className='my-10 p-4 flex flex-col lg:grid grid-cols-5 items-center'>
-        <p className='col-span-5 my-4 italic font-bold text-2xl text-center border-b-2 md:text-start md:border-b-0 md:border-l-2 p-4'>&quot;Discover the immense power of astrology, utilizing your birth chart as the framework to align with your most authentic self.&quot;</p>
-        {/* <div className='flex flex-col md:flex-row justify-center col-span-3'>
-          <button onClick={() => setCoachingShown(false)} className='group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-around'>
+        <p className='col-span-2 my-4 italic font-bold text-2xl text-center border-b-2 md:text-start md:border-b-0 md:border-l-2 p-4'>&quot;Discover the immense power of astrology, utilizing your birth chart as the framework to align with your most authentic self.&quot;</p>
+        <div className='flex flex-col md:flex-row justify-center col-span-3'>
+          <button onClick={() => {setCategory('astrology'); router.push('/services')}} className='group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-around'>
             Discover Astrology
             <div className='relative w-[80%] h-[58%] rounded-[120px] overflow-hidden'>
               <Image className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform scale-100 group-hover:scale-110 opacity-80' src={stars} alt='stars in the night sky' />
             </div>
             Discover Astrology
           </button>
-          <button onClick={() => setCoachingShown(true)} className='discovery-btn group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-around'>
+          <button onClick={() => {setCategory('coaching'); router.push('/services')}} className='discovery-btn group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-around'>
             Discover Coaching
             <div className='relative w-[80%] h-[58%] rounded-[120px] overflow-hidden'>
               <Image className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform scale-100 group-hover:scale-110 opacity-80' src={moon} alt='moon visible during the afternoon, peaking through a pink sunset' />
             </div>
             Discover Coaching
           </button>
-        </div> */}
+        </div>
       </article>
       <article id='homeAboutSection' className='min-h-[420px] flex flex-col justify-center lg:grid grid-cols-2'>
         <div className='bg-white bg-opacity-60 mt-4 lg:mt-0 lg:bg-transparent rounded-sm p-4 h-auto flex flex-col justify-around'>
@@ -49,19 +53,11 @@ const Home = () => {
         </div>
         <div className='bg-white bg-opacity-90 mb-4 lg:m-2 lg:rounded-sm p-6 h-auto flex flex-col items-center justify-around'>
           <p className='m-1 max-w-[800px]'>We will begin with clarifying goals, and identifying challenges and blocks that keep showing up and standing in the way of you creating you dream life. This will begin with mindset work, and eventually and inevitably lead us into the deeper work through somatic processing. Getting to the root of the issue is crucial and essential if we are hoping to make lasting change. I am a huge believer in awareness and mindfulness for each and every one of my clients so we will be practicing these skills all through out our work together. Additionally, I use astrology - both birth charts and transits - as a way for us to gain deeper insight and awareness into what is currently showing up for you and how we can better align with the themes in your life. Join me as we traverse and explore the complexities of your inner world, aligning you with your dream life and highest expression of yourself. </p>
-          {/* <button className='josefin p-2 pt-3 my-2 border-[1px] border-black '>EXPLORE SERVICES</button> */}
-          <Link href='https://calendly.com/katiesanger/30min' target='_blank' className='self-center border-black josefin border-b-[1px] py-2 px-5 mt-4'>
-            BOOK A FREE CLARITY CALL
+          <Link href='/services' className='self-center border-black josefin border-b-[1px] py-2 px-5 mt-4'>
+            EXPLORE SERVICES
           </Link>
         </div>
       </article>
-      {/* 
-      <article className='text-center'>
-        <p>Have you ever set out to make a change in your life, only to inevitably fall back into an old pattern or blockage?</p>
-        <p>Are you struggling to make changes, deep down knowing you want and need more for your life, but having no idea how to get there or how to begin?</p>
-        <p>Do you believe that if only you just push a little harder, or criticize just a little more, you can force yourself into change... only once again to be met with the same old version of yourself?</p>
-        <p>Here's where my unique blend of tools and methodology works and becomes incredibly impactful.</p>
-      </article> */}
     </Layout>
   );
 };

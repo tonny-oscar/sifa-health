@@ -11,6 +11,8 @@ import Link from 'next/link';
 export default function App({ Component, pageProps }: AppProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [category, setCategory] = useState('astrology');
+
   useEffect(() => {
     const closeMenu = () => {
       if (window.innerWidth > 768) setMenuOpen(false);
@@ -50,6 +52,9 @@ export default function App({ Component, pageProps }: AppProps) {
                 <Link className='border-b-[1px] border-black w-screen max-w-[200px] text-center text-xl' onClick={toggleMenu} href='/about'>
                   ABOUT
                 </Link>
+                <Link className='border-b-[1px] border-black w-screen max-w-[200px] text-center text-xl' onClick={toggleMenu} href='/services'>
+                  SERVICES
+                </Link>
                 <Link className='border-b-[1px] border-black w-screen max-w-[200px] text-center text-xl' onClick={toggleMenu} href='/contact'>
                   CONTACT
                 </Link>
@@ -61,7 +66,7 @@ export default function App({ Component, pageProps }: AppProps) {
           ) : (
             <>
               <Header toggleMenu={toggleMenu} />
-              <Component {...pageProps} />
+              <Component {...pageProps} category={category} setCategory={setCategory} />
             </>
           )}
         </div>

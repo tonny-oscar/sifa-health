@@ -3,7 +3,7 @@ import React from 'react';
 import yoga from '../../public/images/seated.png';
 import bodhi from '../../public/images/bodhi.png';
 import Image from 'next/image';
-import inverted from '../../public/images/inverted.png'
+import inverted from '../../public/images/upyoga.png'
 import Link from 'next/link';
 
 const About = () => {
