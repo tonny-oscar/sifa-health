@@ -53,9 +53,8 @@ const Home = ({setCategory }: { setCategory: React.Dispatch<React.SetStateAction
         </div>
         <div className='bg-white bg-opacity-90 mb-4 lg:m-2 lg:rounded-sm p-6 h-auto flex flex-col items-center justify-around'>
           <p className='m-1 max-w-[800px]'>We will begin with clarifying goals, and identifying challenges and blocks that keep showing up and standing in the way of you creating you dream life. This will begin with mindset work, and eventually and inevitably lead us into the deeper work through somatic processing. Getting to the root of the issue is crucial and essential if we are hoping to make lasting change. I am a huge believer in awareness and mindfulness for each and every one of my clients so we will be practicing these skills all through out our work together. Additionally, I use astrology - both birth charts and transits - as a way for us to gain deeper insight and awareness into what is currently showing up for you and how we can better align with the themes in your life. Join me as we traverse and explore the complexities of your inner world, aligning you with your dream life and highest expression of yourself. </p>
-          {/* <button className='josefin p-2 pt-3 my-2 border-[1px] border-black '>EXPLORE SERVICES</button> */}
-          <Link href='https://calendly.com/katiesanger/30min' target='_blank' className='self-center border-black josefin border-b-[1px] py-2 px-5 mt-4'>
-            BOOK A FREE CLARITY CALL
+          <Link href='/services' className='self-center border-black josefin border-b-[1px] py-2 px-5 mt-4'>
+            EXPLORE SERVICES
           </Link>
         </div>
       </article>
