@@ -1,60 +1,48 @@
-import { FormEvent, useEffect, useState } from 'react';
-import { Submission } from '../utils/types';
-import { sendEmail } from '@/utils/apiCall';
+'use client';
+
+import { FormEvent, useState } from 'react';
+import { sendEmail } from '../utils/apiCall';
 
 const ContactForm = () => {
-  const freshForm: Submission = {
+  const [form, setForm] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
-  };
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
-  const [formData, setFormData] = useState<Submission>(freshForm);
-  const [sending, setSending] = useState(false);
-
-  useEffect(() => resetFeedback, []);
-
-  const submitForm = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSending(true);
-    try {
-      await sendEmail({ ...formData, subject: `New Client Inquiry${formData.subject.length ? ': ' + formData.subject : ''}` });
-      setSuccess(true);
-      setFormData(freshForm);
-    } catch (error) {
-      setError(true);
-    }
-    setSending(false);
-  };
-
-  const resetFeedback = () => {
-    setError(false);
-    setSuccess(false);
-  };
-
-  const changeInput = (field: string, input: string) => {
-    setFormData((prev: Submission) => ({
-      ...prev,
-      [field]: input,
-    }));
-  };
-
-  const formInputs = Object.keys(formData).map((field) => {
-    return (
-      <div key={field} className={`${field === 'message' || field === 'subject' ? 'col-span-2 flex-col' : 'col-span-2 lg:col-span-1'} flex border-b-[1px] border-black ${field}-container`}>
-        <label className='pr-2' htmlFor={field}>{`${field.charAt(0).toUpperCase()}${field.slice(1)}${field !== 'subject' ? '*' : ''}`}</label>
-        {field !== 'message' ? <input className='focus:outline-none bg-transparent flex-1' type={field === 'email' ? 'email' : 'text'} id={field} name={field} onChange={(e) => changeInput(e.target.name, e.target.value)} onFocus={resetFeedback} value={formData[field]} required={field !== 'subject'} /> : <textarea className='focus:outline-none bg-transparent h-20' id={field} name={field} onChange={(e) => changeInput(e.target.name, e.target.value)} onFocus={resetFeedback} value={formData[field]} required />}
-      </div>
-    );
   });
 
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setStatus('sending');
+    try {
+      await sendEmail(form);
+      setStatus('success');
+      setForm({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      console.error('Send error:', err);
+      setStatus('error');
+    }
+  };
+
   return (
-    <form onSubmit={submitForm} className='grid grid-cols-2 gap-4 mt-5'>
-      {formInputs}
-      {sending ? <p className='italic text-center col-span-2'>Sending, please wait...</p> : <button className='col-span-2'>Send</button>}
-      <p className={`text-center col-span-2 h-10 ${success ? 'text-gray-700' : error ? 'text-red-700' : ''}`}>{success ? 'Success! Message sent.' : error ? 'Whoops! Something went wrong. Please try again.' : ''}</p>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <input name="name" value={form.name} onChange={handleChange} placeholder="Name*" required className="border p-2 w-full" />
+      <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Email*" required className="border p-2 w-full" />
+      <input name="subject" value={form.subject} onChange={handleChange} placeholder="Subject" className="border p-2 w-full" />
+      <textarea name="message" value={form.message} onChange={handleChange} placeholder="Message*" required className="border p-2 w-full h-24" />
+
+      <button type="submit" className="bg-black text-white px-4 py-2">
+        {status === 'sending' ? 'Sending...' : 'Send Message'}
+      </button>
+
+      {status === 'success' && <p className="text-green-600">✅ Message sent successfully!</p>}
+      {status === 'error' && <p className="text-red-600">❌ Failed to send. Try again.</p>}
     </form>
   );
 };
