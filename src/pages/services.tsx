@@ -2,7 +2,7 @@ import Layout from '@/components/Layout';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import heroImage from '../../public/images/twisted.png';
+import heroImage from '../../public/images/datingscout-DHNgzmiWxD4-unsplash.jpg';
 
 const services = [
   {
