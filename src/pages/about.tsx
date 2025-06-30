@@ -1,9 +1,10 @@
 import Layout from '@/components/Layout';
 import React from 'react';
 import Image from 'next/image';
-import centerImage from '../../public/images/seated.png'; 
-import facilityImage from '../../public/images/light.jpg'; 
-import approachImage from '../../public/images/maleki.jpg'; 
+import centerImage from '../../public/images/seated.png';
+import facilityImage from '../../public/images/light.jpg';
+import approachImage from '../../public/images/maleki.jpg';
+import contactImage from '../../public/images/sifa.webp'; // NEW: imported contact image
 
 const About = () => {
   return (
@@ -87,12 +88,19 @@ const About = () => {
           </p>
         </div>
 
-        {/* Contact Info */}
-        <div className="col-span-2 flex flex-col items-center mt-8 text-center">
-          <h3 className="text-xl font-semibold">Contact Sifa Health</h3>
-          <p className="text-md mt-2">📍 Eka Massachusetts</p>
-          <p className="text-md">📞 +1 857 413 9238</p>
-          <p className="text-md">📧 info@sifahealth.com</p>
+        {/* Contact Info with Image */}
+        <div className="col-span-2 flex flex-col-reverse md:flex-row items-center justify-around mt-10 text-center bg-gray-100 p-6 rounded-md shadow-md w-full max-w-5xl mx-auto">
+          <div className="md:w-1/2 text-center md:text-left">
+            <h3 className="text-xl font-semibold mb-2">Contact Sifa Health</h3>
+            <p className="text-md mt-1">📍 Eka Massachusetts</p>
+            <p className="text-md">📞 +1 857 413 9238</p>
+            <p className="text-md">📧 info@sifahealth.com</p>
+          </div>
+          <Image
+            className="w-full md:w-[300px] h-auto object-cover rounded-md mb-4 md:mb-0"
+            src={contactImage}
+            alt="Sifa Health Contact"
+          />
         </div>
       </div>
     </Layout>

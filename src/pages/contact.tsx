@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactForm from '@/components/ContactForm';
-import flowers from '../../public/images/ks-flowers.jpg';
+import flowers from '../../public/images/pic2.webp';
 import Image from 'next/image';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
