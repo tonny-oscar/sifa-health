@@ -1,63 +1,98 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Layout from '@/components/Layout';
-import moonphase from '../../public/images/moonphase.png';
-import moonsun from '../../public/images/moon-sun.png';
+import heroImage from '../../public/images/twisted.png'; // use a medical/mental wellness image if possible
 import Link from 'next/link';
-import moon from '../../public/images/moon.png';
-import stars from '../../public/images/stars.png';
-import { useRouter } from 'next/router';
 
-const Home = ({setCategory }: { setCategory: React.Dispatch<React.SetStateAction<string>> }) => {
-  const router = useRouter();
+const Home = () => {
+  const [form, setForm] = useState({ name: '', email: '', phone: '', reason: '' });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // handle submission
+    console.log(form);
+  };
+
   return (
     <Layout>
-      <div id='homeSection' className='p-5 w-screen h-[500px] grid grid-cols-2'>
-        <article className='h-5/6 text-center flex flex-col m-auto items-center justify-around col-span-2 md:col-span-1 md:max-w-[400px]'>
-          <h1 className='text-xl font-extrabold'>DEEPEN. EVOLVE. GROW.</h1>
-          <p className='max-w-[300px]'>self discovery + mind-body healing for the heart centered woman</p>
-          <div className='h-[30px] border-l-[1px] border-black'></div>
-          <Link href='https://calendly.com/katiesanger/30min' target='_blank' className='self-center border-black josefin border-[1px] py-1 pt-2 px-4'>
-            BOOK A CALL
-          </Link>
-          <Image src={moonphase} alt='moonphases' className='max-w-screen w-[250px]' />
-        </article>
-      </div>
-      <article className='min-h-[200px] h-auto border-t-[2px] text-center border-linen bg-white p-5 flex flex-col items-center justify-around'>
-        <h1 className='text-xl'>How you do one thing, is how you do everything.</h1>
-        <Image src={moonsun} alt='moon and sun decorative image' className='max-w-screen w-[150px]' />
-        <p>If you&apos;re looking for long lasting, transformation - you&apos;re in the right place. Journey with me as we cultivate and create your dream life: from the inside out. Let&apos;s align you with your highest calling and most authentic expression utilizing a blend of astrology, personal empowerment, and life coaching.</p>
-      </article>
-      <article id='calloutArticle' className='my-10 p-4 flex flex-col lg:grid grid-cols-5 items-center'>
-        <p className='col-span-2 my-4 italic font-bold text-2xl text-center border-b-2 md:text-start md:border-b-0 md:border-l-2 p-4'>&quot;Discover the immense power of astrology, utilizing your birth chart as the framework to align with your most authentic self.&quot;</p>
-        <div className='flex flex-col md:flex-row justify-center col-span-3'>
-          <button onClick={() => {setCategory('astrology'); router.push('/services')}} className='group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-around'>
-            Discover Astrology
-            <div className='relative w-[80%] h-[58%] rounded-[120px] overflow-hidden'>
-              <Image className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform scale-100 group-hover:scale-110 opacity-80' src={stars} alt='stars in the night sky' />
+      {/* Hero Section */}
+      <section className="bg-blue-50 px-6 py-10 flex flex-col-reverse md:flex-row items-center justify-between">
+        <div className="md:w-1/2 text-center md:text-left">
+          <h1 className="text-4xl font-bold text-blue-900 mb-4">Empowering Wellness,<br />Transforming Lives.</h1>
+          <p className="text-gray-700 mb-6">At Sifa Health, we deliver personalized mental health care with compassion and evidence-based treatments.</p>
+          <Link href="/services" className="bg-blue-700 text-white px-6 py-3 rounded hover:bg-blue-800 transition">View Services</Link>
+        </div>
+        <div className="md:w-1/2">
+          <Image src={heroImage} alt="Mental health support" className="rounded-lg w-full h-auto" />
+        </div>
+      </section>
+
+      {/* We Value Section */}
+      <section className="text-center py-12 bg-white">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-2">We Value</h2>
+        <h3 className="text-3xl font-bold text-blue-800 mb-6">Empowering Wellness, Transforming Lives</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+          <div>
+            <h4 className="text-xl font-semibold">Diagnose</h4>
+            <p className="text-gray-600">Identify root causes with clarity and care.</p>
+          </div>
+          <div>
+            <h4 className="text-xl font-semibold">Treatment</h4>
+            <p className="text-gray-600">Delivering expert, evidence-based support.</p>
+          </div>
+          <div>
+            <h4 className="text-xl font-semibold">Empower</h4>
+            <p className="text-gray-600">Promoting long-term mental wellness and resilience.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Form Section */}
+      <section className="bg-blue-50 py-10 px-6 text-center">
+        <h3 className="text-2xl font-bold mb-4">We’re Always Ready to Help</h3>
+        <p className="mb-6 text-gray-700">Book an appointment</p>
+        <form onSubmit={handleSubmit} className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+          <input name="name" required onChange={handleChange} placeholder="Full Name *" className="p-3 border rounded" />
+          <input name="email" type="email" required onChange={handleChange} placeholder="Email Address *" className="p-3 border rounded" />
+          <input name="phone" required onChange={handleChange} placeholder="+254..." className="p-3 border rounded col-span-1 md:col-span-2" />
+          <textarea name="reason" required onChange={handleChange} placeholder="Reason for Appointment *" className="p-3 border rounded col-span-1 md:col-span-2 h-24" />
+          <button type="submit" className="bg-blue-700 text-white py-3 px-6 rounded hover:bg-blue-800 col-span-1 md:col-span-2">Submit</button>
+        </form>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-10 px-6 bg-white text-center">
+        <h2 className="text-3xl font-bold mb-6">Why Choose Sifa Health</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {[
+            ["Holistic Approach", "We treat the whole person, not just symptoms."],
+            ["Experienced Team", "Care from certified professionals with years of expertise."],
+            ["Personalized Care", "Tailored solutions to meet your unique needs."],
+            ["Compassionate Support", "Empathy and understanding at every step."],
+            ["Cutting-Edge Treatments", "Modern therapies backed by research."],
+            ["Collaborative Care", "We build trust and work together for better outcomes."],
+          ].map(([title, desc], i) => (
+            <div key={i} className="p-4 border rounded shadow-sm hover:shadow-md transition">
+              <h4 className="font-semibold text-lg">{title}</h4>
+              <p className="text-gray-600 mt-2">{desc}</p>
             </div>
-            Discover Astrology
-          </button>
-          <button onClick={() => {setCategory('coaching'); router.push('/services')}} className='discovery-btn group m-2 border-[1px] rounded-sm bg-white h-72 w-52 flex flex-col items-center justify-around'>
-            Discover Coaching
-            <div className='relative w-[80%] h-[58%] rounded-[120px] overflow-hidden'>
-              <Image className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform scale-100 group-hover:scale-110 opacity-80' src={moon} alt='moon visible during the afternoon, peaking through a pink sunset' />
-            </div>
-            Discover Coaching
-          </button>
+          ))}
         </div>
-      </article>
-      <article id='homeAboutSection' className='min-h-[420px] flex flex-col justify-center lg:grid grid-cols-2'>
-        <div className='bg-white bg-opacity-60 mt-4 lg:mt-0 lg:bg-transparent rounded-sm p-4 h-auto flex flex-col justify-around'>
-          <h1 className='josefin self-center text-center text-3xl font-regular md:font-semibold m-2'>Meet the deeper parts of yourself, through a compassionate lens - resulting in lasting changes.</h1>
-        </div>
-        <div className='bg-white bg-opacity-90 mb-4 lg:m-2 lg:rounded-sm p-6 h-auto flex flex-col items-center justify-around'>
-          <p className='m-1 max-w-[800px]'>We will begin with clarifying goals, and identifying challenges and blocks that keep showing up and standing in the way of you creating you dream life. This will begin with mindset work, and eventually and inevitably lead us into the deeper work through somatic processing. Getting to the root of the issue is crucial and essential if we are hoping to make lasting change. I am a huge believer in awareness and mindfulness for each and every one of my clients so we will be practicing these skills all through out our work together. Additionally, I use astrology - both birth charts and transits - as a way for us to gain deeper insight and awareness into what is currently showing up for you and how we can better align with the themes in your life. Join me as we traverse and explore the complexities of your inner world, aligning you with your dream life and highest expression of yourself. </p>
-          <Link href='/services' className='self-center border-black josefin border-b-[1px] py-2 px-5 mt-4'>
-            EXPLORE SERVICES
-          </Link>
-        </div>
-      </article>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-blue-50 py-10 px-6 text-center">
+        <h3 className="text-2xl font-bold mb-4">What Makes Us Proud</h3>
+        <blockquote className="max-w-3xl mx-auto italic text-gray-700">
+          “I struggled with depression for years, but the team at Sifa Health treated me with such care and understanding.
+          Their personalized treatment plan has made a world of difference. I feel hopeful and empowered for the first time in years.”
+        </blockquote>
+        <p className="mt-4 font-semibold text-gray-800">— Steven Gerrard, Golden Lotus Apartment, Brooklyn, USA</p>
+      </section>
     </Layout>
   );
 };
