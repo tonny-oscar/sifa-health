@@ -1,3 +1,5 @@
+// pages/api/createBooking.ts
+
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { google } from 'googleapis';
 import nodemailer from 'nodemailer';
@@ -19,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { name, email, phone, reason, startTime, endTime } = req.body;
     const calendar = google.calendar({ version: 'v3', auth: oauth2Client });
 
-    // Check if time is free
+    // Check if time slot is free
     const busy = await calendar.freebusy.query({
       requestBody: {
         timeMin: startTime,
@@ -29,11 +31,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
     });
 
-    if (busy.data.calendars.primary.busy.length > 0) {
+    const isBusy = busy?.data?.calendars?.primary?.busy?.length ?? 0;
+    if (isBusy > 0) {
       return res.status(409).json({ message: 'Time slot already booked.' });
     }
 
-    // Create event with Google Meet
+    // Create calendar event with Google Meet
     const response = await calendar.events.insert({
       calendarId: 'primary',
       conferenceDataVersion: 1,
@@ -55,7 +58,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const eventLink = response.data.htmlLink || 'https://calendar.google.com/';
     const meetLink = response.data.conferenceData?.entryPoints?.[0]?.uri || '';
 
-    // Send confirmation email
+    // Send confirmation email to client
     const transport = nodemailer.createTransport({
       service: 'gmail',
       auth: {
