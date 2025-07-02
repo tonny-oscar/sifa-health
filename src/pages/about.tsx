@@ -83,7 +83,8 @@ const About = () => {
         </div>
       </div>
     </Layout>
-  );
+  );;
+  
 };
 
 export default About;
