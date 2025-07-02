@@ -11,9 +11,38 @@ const Home = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(form);
+
+    // Static time: today at 10:00 AM – 10:30 AM
+    const now = new Date();
+    now.setHours(10, 0, 0, 0);
+    const end = new Date(now.getTime() + 30 * 60 * 1000);
+
+    const payload = {
+      ...form,
+      startTime: now.toISOString(),
+      endTime: end.toISOString(),
+    };
+
+    try {
+      const res = await fetch('/api/createBooking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await res.json();
+      if (res.ok) {
+        alert('✅ Booking successful!');
+        setForm({ name: '', email: '', phone: '', reason: '' });
+      } else {
+        alert('❌ Booking failed: ' + result.message);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('⚠️ Something went wrong. Try again later.');
+    }
   };
 
   return (
@@ -21,8 +50,12 @@ const Home = () => {
       {/* Hero Section */}
       <section className="bg-gray-100 px-6 py-10 flex flex-col-reverse md:flex-row items-center justify-between">
         <div className="md:w-1/2 text-center md:text-left">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Empowering Wellness,<br />Transforming Lives.</h1>
-          <p className="text-gray-600 mb-6">At Sifa Health, we deliver personalized mental health care with compassion and evidence-based treatments.</p>
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">
+            Empowering Wellness,<br />Transforming Lives.
+          </h1>
+          <p className="text-gray-600 mb-6">
+            At Sifa Health, we deliver personalized mental health care with compassion and evidence-based treatments.
+          </p>
           <Link href="/services" className="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-700 transition">
             View Services
           </Link>
@@ -55,11 +88,43 @@ const Home = () => {
         <h3 className="text-2xl font-bold mb-4 text-gray-800">We’re Always Ready to Help</h3>
         <p className="mb-6 text-gray-600">Book an appointment</p>
         <form onSubmit={handleSubmit} className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-          <input name="name" required onChange={handleChange} placeholder="Full Name *" className="p-3 border rounded text-gray-700" />
-          <input name="email" type="email" required onChange={handleChange} placeholder="Email Address *" className="p-3 border rounded text-gray-700" />
-          <input name="phone" required onChange={handleChange} placeholder="+254..." className="p-3 border rounded col-span-1 md:col-span-2 text-gray-700" />
-          <textarea name="reason" required onChange={handleChange} placeholder="Reason for Appointment *" className="p-3 border rounded col-span-1 md:col-span-2 h-24 text-gray-700" />
-          <button type="submit" className="bg-gray-800 text-white py-3 px-6 rounded hover:bg-gray-700 col-span-1 md:col-span-2">
+          <input
+            name="name"
+            value={form.name}
+            required
+            onChange={handleChange}
+            placeholder="Full Name *"
+            className="p-3 border rounded text-gray-700"
+          />
+          <input
+            name="email"
+            type="email"
+            value={form.email}
+            required
+            onChange={handleChange}
+            placeholder="Email Address *"
+            className="p-3 border rounded text-gray-700"
+          />
+          <input
+            name="phone"
+            value={form.phone}
+            required
+            onChange={handleChange}
+            placeholder="+254..."
+            className="p-3 border rounded col-span-1 md:col-span-2 text-gray-700"
+          />
+          <textarea
+            name="reason"
+            value={form.reason}
+            required
+            onChange={handleChange}
+            placeholder="Reason for Appointment *"
+            className="p-3 border rounded col-span-1 md:col-span-2 h-24 text-gray-700"
+          />
+          <button
+            type="submit"
+            className="bg-gray-800 text-white py-3 px-6 rounded hover:bg-gray-700 col-span-1 md:col-span-2"
+          >
             Submit
           </button>
         </form>
