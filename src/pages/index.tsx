@@ -3,9 +3,13 @@ import Image from 'next/image';
 import Layout from '@/components/Layout';
 import heroImage from '../../public/images/angela-lo-g0T8fHzq8ps-unsplash.jpg';
 import Link from 'next/link';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Home = () => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', reason: '' });
+  const [date, setDate] = useState<Date | null>(new Date());
+  const [time, setTime] = useState<string>('10:00');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -14,14 +18,19 @@ const Home = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Static time: today at 10:00 AM – 10:30 AM
-    const now = new Date();
-    now.setHours(10, 0, 0, 0);
-    const end = new Date(now.getTime() + 30 * 60 * 1000);
+    if (!date || !time) {
+      alert('Please select date and time');
+      return;
+    }
+
+    const [hours, minutes] = time.split(':').map(Number);
+    const start = new Date(date);
+    start.setHours(hours, minutes, 0, 0);
+    const end = new Date(start.getTime() + 30 * 60 * 1000);
 
     const payload = {
       ...form,
-      startTime: now.toISOString(),
+      startTime: start.toISOString(),
       endTime: end.toISOString(),
     };
 
@@ -34,14 +43,16 @@ const Home = () => {
 
       const result = await res.json();
       if (res.ok) {
-        alert('✅ Booking successful!');
+        alert('✅ Booking successful! Check your email for confirmation.');
         setForm({ name: '', email: '', phone: '', reason: '' });
+        setDate(new Date());
+        setTime('10:00');
       } else {
         alert('❌ Booking failed: ' + result.message);
       }
     } catch (err) {
       console.error(err);
-      alert('⚠️ Something went wrong. Try again later.');
+      alert('⚠️ Something went wrong. Please try again later.');
     }
   };
 
@@ -121,6 +132,26 @@ const Home = () => {
             placeholder="Reason for Appointment *"
             className="p-3 border rounded col-span-1 md:col-span-2 h-24 text-gray-700"
           />
+          <div className="col-span-1 md:col-span-2">
+            <label className="block mb-1 text-gray-700">Select Date:</label>
+            <DatePicker
+              selected={date}
+              onChange={setDate}
+              className="w-full p-3 border rounded text-gray-700"
+              minDate={new Date()}
+              dateFormat="MMMM d, yyyy"
+              placeholderText="Select date"
+            />
+          </div>
+          <div className="col-span-1 md:col-span-2">
+            <label className="block mb-1 text-gray-700">Select Time:</label>
+            <input
+              type="time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+              className="w-full p-3 border rounded text-gray-700"
+            />
+          </div>
           <button
             type="submit"
             className="bg-gray-800 text-white py-3 px-6 rounded hover:bg-gray-700 col-span-1 md:col-span-2"
