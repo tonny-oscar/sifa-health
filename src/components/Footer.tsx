@@ -52,7 +52,10 @@ const Footer = () => {
       <div className="flex justify-center mt-8">
         <Image src={minimoon} alt="Moon decorative" className="w-6 rotate-45 opacity-50" />
       </div>
-      <p className="text-center text-sm text-gray-500 mt-4">
+      <p className="text-center text-xs text-gray-400 mt-2 italic">
+        Mind your mind, live to the fullest
+      </p>
+      <p className="text-center text-sm text-gray-500 mt-2">
         © {new Date().getFullYear()} Sifa Health. All rights reserved.
       </p>
     </footer>

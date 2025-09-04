@@ -2,7 +2,7 @@ import Layout from '@/components/Layout';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import heroImage from '../../public/images/datingscout-DHNgzmiWxD4-unsplash.jpg';
+import heroImage from '../../public/images/WhatsApp Image 2025-09-04 at 9.43.23 AM.jpeg';
 
 const services = [
   {
@@ -53,6 +53,18 @@ const services = [
     title: 'Post-Traumatic Stress Disorder (PTSD)',
     description: 'Triggered by experiencing or witnessing trauma, causing flashbacks, avoidance, and heightened anxiety.',
   },
+  {
+    title: 'Restore Balance and Harmony',
+    description: 'Comprehensive service to restore balance and harmony, improve overall well-being through holistic mental health approaches.',
+  },
+  {
+    title: 'Medication Deprescribing',
+    description: 'We assist with safe gradual dose reduction on antipsychotic, benzodiazepines, mood stabilizers and z-drugs.',
+  },
+  {
+    title: 'Personalized Psychotherapy',
+    description: 'Restore balance and harmony, improve overall well-being through tailored therapeutic approaches.',
+  },
 ];
 
 const ServicesPage = () => {
@@ -68,10 +80,16 @@ const ServicesPage = () => {
         <article className="p-4 px-[5%] flex flex-col text-center md:text-start">
           <h2 className="text-3xl font-semibold text-gray-900">The Best Solution for Your Mental Health</h2>
           <p className="text-xl py-2 text-gray-700">Services We Provide</p>
-          <p className="max-w-full md:max-w-[500px] text-gray-600">
-            At Sifa Health, we provide personalized mental health treatment with a compassionate, holistic approach. Explore the wide range of services we offer to support your emotional well-being.
+          <p className="max-w-full md:max-w-[500px] text-gray-600 mb-4">
+            At Sifa Health, we value the importance of thorough and comprehensive mental health care tailored to individual's needs.
           </p>
-        </article>
+          <p className="max-w-full md:max-w-[500px] text-gray-600">
+            We offer individualized care through integrated care that combines medical management and psychotherapy for optimized outcomes in a safe and supportive space.
+          </p>
+          <p className="mt-2 text-gray-600">
+            We are dedicated to helping our clients thrive.
+          </p>
+        </article> 
       </div>
 
       {/* Services Grid */}
@@ -112,7 +130,7 @@ const ServicesPage = () => {
           “I struggled with depression for years, but the team at Sifa Health treated me with such care and understanding.
           Their personalized treatment plan has made a world of difference. I feel hopeful and empowered for the first time in years.”
         </blockquote>
-        <p className="mt-4 font-semibold text-gray-800">— Steven Gerrard, Golden Lotus Apartment, Brooklyn, USA</p>
+        <p className="mt-4 font-semibold text-gray-800">— Stevene Gitau, Golden Lotus Apartment, Nairobi, Kenya</p>
       </section>
     </Layout>
   );

@@ -6,8 +6,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Head>
-        <title>Katie Sanger</title>
-        <meta name='description' content='Katie Sanger is a life coach and astrologist offering wellness services.' />
+        <title>Sifa Health</title>
+        <meta name='description' content='Sifa Health is dedicated to providing holistic, person-centered care for mental health, fostering a supportive healing environment.' />
       </Head>
       <main className='fade-in'>{children}</main>
       <Footer />

@@ -1,5 +1,3 @@
-// pages/api/createBooking.ts
-
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { google } from 'googleapis';
 import nodemailer from 'nodemailer';

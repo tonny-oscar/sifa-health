@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Layout from '@/components/Layout';
-import heroImage from '../../public/images/angela-lo-g0T8fHzq8ps-unsplash.jpg';
+import heroImage from '../../public/images/WhatsApp Image 2025-09-04 at 9.43.24 AM (1).jpeg';
 import Link from 'next/link';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -95,70 +95,92 @@ const Home = () => {
       </section>
 
       {/* Booking Form Section */}
-      <section className="bg-gray-100 py-10 px-6 text-center">
-        <h3 className="text-2xl font-bold mb-4 text-gray-800">We’re Always Ready to Help</h3>
-        <p className="mb-6 text-gray-600">Book an appointment</p>
-        <form onSubmit={handleSubmit} className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-          <input
-            name="name"
-            value={form.name}
-            required
-            onChange={handleChange}
-            placeholder="Full Name *"
-            className="p-3 border rounded text-gray-700"
-          />
-          <input
-            name="email"
-            type="email"
-            value={form.email}
-            required
-            onChange={handleChange}
-            placeholder="Email Address *"
-            className="p-3 border rounded text-gray-700"
-          />
-          <input
-            name="phone"
-            value={form.phone}
-            required
-            onChange={handleChange}
-            placeholder="+254..."
-            className="p-3 border rounded col-span-1 md:col-span-2 text-gray-700"
-          />
-          <textarea
-            name="reason"
-            value={form.reason}
-            required
-            onChange={handleChange}
-            placeholder="Reason for Appointment *"
-            className="p-3 border rounded col-span-1 md:col-span-2 h-24 text-gray-700"
-          />
-          <div className="col-span-1 md:col-span-2">
-            <label className="block mb-1 text-gray-700">Select Date:</label>
-            <DatePicker
-              selected={date}
-              onChange={setDate}
-              className="w-full p-3 border rounded text-gray-700"
-              minDate={new Date()}
-              dateFormat="MMMM d, yyyy"
-              placeholderText="Select date"
-            />
+      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-3xl font-bold mb-4 text-gray-800">We're Always Ready to Help</h3>
+          <p className="text-xl text-gray-600 mb-8">Take the first step towards better mental health and book an appointment</p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Link 
+              href="https://calendly.com/katiesanger/30min" 
+              target="_blank"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+            >
+              Quick Book Online
+            </Link>
+            <button 
+              onClick={() => document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-white hover:bg-gray-50 text-blue-600 font-semibold py-4 px-8 rounded-lg shadow-lg border-2 border-blue-600 transform hover:scale-105 transition-all duration-200"
+            >
+              Fill Out Form Below
+            </button>
           </div>
-          <div className="col-span-1 md:col-span-2">
-            <label className="block mb-1 text-gray-700">Select Time:</label>
-            <input
-              type="time"
-              value={time}
-              onChange={(e) => setTime(e.target.value)}
-              className="w-full p-3 border rounded text-gray-700"
-            />
-          </div>
-          <button
-            type="submit"
-            className="bg-gray-800 text-white py-3 px-6 rounded hover:bg-gray-700 col-span-1 md:col-span-2"
-          >
-            Submit
-          </button>
-        </form>
+          
+          {/* <div id="booking-form" className="bg-white rounded-xl shadow-xl p-8">
+            <h4 className="text-2xl font-semibold mb-6 text-gray-800">Schedule Your Appointment</h4>
+            <form onSubmit={handleSubmit} className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              <input
+                name="name"
+                value={form.name}
+                required
+                onChange={handleChange}
+                placeholder="Full Name *"
+                className="p-4 border-2 border-gray-200 rounded-lg text-gray-700 focus:border-blue-500 focus:outline-none transition-colors"
+              />
+              <input
+                name="email"
+                type="email"
+                value={form.email}
+                required
+                onChange={handleChange}
+                placeholder="Email Address *"
+                className="p-4 border-2 border-gray-200 rounded-lg text-gray-700 focus:border-blue-500 focus:outline-none transition-colors"
+              />
+              <input
+                name="phone"
+                value={form.phone}
+                required
+                onChange={handleChange}
+                placeholder="Phone Number *"
+                className="p-4 border-2 border-gray-200 rounded-lg col-span-1 md:col-span-2 text-gray-700 focus:border-blue-500 focus:outline-none transition-colors"
+              />
+              <textarea
+                name="reason"
+                value={form.reason}
+                required
+                onChange={handleChange}
+                placeholder="Reason for Appointment *"
+                className="p-4 border-2 border-gray-200 rounded-lg col-span-1 md:col-span-2 h-32 text-gray-700 focus:border-blue-500 focus:outline-none transition-colors resize-none"
+              />
+              <div className="col-span-1 md:col-span-2">
+                <label className="block mb-2 text-gray-700 font-medium">Preferred Date:</label>
+                <DatePicker
+                  selected={date}
+                  onChange={setDate}
+                  className="w-full p-4 border-2 border-gray-200 rounded-lg text-gray-700 focus:border-blue-500 focus:outline-none transition-colors"
+                  minDate={new Date()}
+                  dateFormat="MMMM d, yyyy"
+                  placeholderText="Select your preferred date"
+                />
+              </div>
+              <div className="col-span-1 md:col-span-2">
+                <label className="block mb-2 text-gray-700 font-medium">Preferred Time:</label>
+                <input
+                  type="time"
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  className="w-full p-4 border-2 border-gray-200 rounded-lg text-gray-700 focus:border-blue-500 focus:outline-none transition-colors"
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200 col-span-1 md:col-span-2"
+              >
+                Submit Appointment Request
+              </button>
+            </form>
+          </div> */}
+        </div>
       </section>
 
       {/* Why Choose Us */}
@@ -185,10 +207,10 @@ const Home = () => {
       <section className="bg-gray-100 py-10 px-6 text-center">
         <h3 className="text-2xl font-bold mb-4 text-gray-800">What Makes Us Proud</h3>
         <blockquote className="max-w-3xl mx-auto italic text-gray-700">
-          “I struggled with depression for years, but the team at Sifa Health treated me with such care and understanding.
-          Their personalized treatment plan has made a world of difference. I feel hopeful and empowered for the first time in years.”
+          "I struggled with depression for years, but the team at Sifa Health treated me with such care and understanding.
+          Their personalized treatment plan has made a world of difference. I feel hopeful and empowered for the first time in years."
         </blockquote>
-        <p className="mt-4 font-semibold text-gray-700">— Steven Gerrard, Golden Lotus Apartment, Brooklyn, USA</p>
+        <p className="mt-4 font-semibold text-gray-700">— Stevene Gitau, Golden Lotus Apartment, Nairobi, Kenya</p>
       </section>
     </Layout>
   );

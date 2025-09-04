@@ -26,10 +26,11 @@ const Header = ({ toggleMenu }: { toggleMenu: () => void }) => {
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
       </button>
-      <nav className="hidden md:flex justify-around items-end md:w-[400px]">
+      <nav className="hidden md:flex justify-end items-end gap-4 flex-1">
         <NavLink href="/about" name="ABOUT" />
         <NavLink href="/services" name="SERVICES" />
         <NavLink href="/contact" name="CONTACT" />
+        <NavLink href="/resources" name="RESOURCES" />
       </nav>
     </header>
   );
